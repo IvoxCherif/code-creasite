@@ -1,0 +1,6 @@
+# Vidéo source (31 Mo) — le site utilise les images de assets/frames/
+assets/*.mp4
+
+# Fichiers système
+Thumbs.db
+.DS_Store
