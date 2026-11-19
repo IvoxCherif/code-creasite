@@ -1,0 +1,37 @@
+# Conteneur isolé du site Code&Créa — totalement séparé du Panthéon (agent IA)
+# Déploiement sur le VPS : cd /opt/codecrea && docker compose up -d --build
+services:
+  site:
+    build: .
+    image: codecrea-site:latest
+    container_name: codecrea-site
+    restart: unless-stopped
+    # Liés uniquement à l'IP publique (le 443 de Tailscale/Panthéon reste intact)
+    ports:
+      - "2.25.6.122:80:80"
+      - "2.25.6.122:443:443"
+      - "2.25.6.122:443:443/udp"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - codecrea
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 256m
+    cpus: 0.5
+
+networks:
+  codecrea:
+    name: codecrea
+
+volumes:
+  caddy_data:
+  caddy_config:
