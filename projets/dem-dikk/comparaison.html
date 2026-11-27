@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dem Dikk — Avant / Après</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=DotGothic16&display=swap" rel="stylesheet">
+  <style>
+    :root { --vert:#0e8a55; --jaune:#ffc629; --atlantique:#0b2f45; --craie:#f4f7f4; --laterite:#d2553a; --led:#ffb300; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Atkinson Hyperlegible", system-ui, sans-serif; background: var(--atlantique); color: #fff; line-height: 1.55; }
+    .wrap { width: min(1200px, 100% - 2.5rem); margin-inline: auto; }
+    header { padding: 3.5rem 0 2rem; }
+    .led { display: inline-block; background: #0b0b0b; color: var(--led); font-family: "DotGothic16", monospace; padding: .4rem .8rem; border-radius: 6px; letter-spacing: .08em; text-shadow: 0 0 8px rgba(255,179,0,.6); }
+    h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 1; letter-spacing: -.03em; margin: 1rem 0 .8rem; }
+    h2 { font-family: "Bricolage Grotesque", sans-serif; font-size: 2rem; letter-spacing: -.02em; margin: 0 0 1rem; }
+    p.lead { max-width: 40rem; color: #c9dae4; font-size: 1.15rem; margin: 0; }
+    a { color: var(--jaune); }
+
+    /* Curseur avant / après */
+    .compare { position: relative; aspect-ratio: 1440 / 900; border-radius: 18px; overflow: hidden; box-shadow: 0 40px 80px -40px #000; user-select: none; touch-action: none; background: #000; }
+    .compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; pointer-events: none; }
+    .compare .after { clip-path: inset(0 0 0 var(--pos, 50%)); }
+    .handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 4px; margin-left: -2px; background: var(--jaune); pointer-events: none; }
+    .handle::after { content: "⇆"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: var(--jaune); color: var(--atlantique); display: grid; place-items: center; font-size: 1.4rem; font-weight: 700; box-shadow: 0 6px 20px rgba(0,0,0,.35); }
+    .tag { position: absolute; top: 1rem; padding: .35rem .8rem; border-radius: 999px; font-weight: 700; font-size: .85rem; pointer-events: none; }
+    .tag-before { left: 1rem; background: rgba(0,0,0,.7); }
+    .tag-after { right: 1rem; background: var(--vert); }
+    .compare input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+    .compare:has(input:focus-visible) .handle::after { outline: 3px solid #fff; outline-offset: 3px; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.5rem 0 0; }
+    .btn { display: inline-flex; padding: .85rem 1.3rem; border-radius: 999px; font-weight: 700; text-decoration: none; }
+    .btn-y { background: var(--jaune); color: var(--atlantique); }
+    .btn-o { border: 2px solid rgba(255,255,255,.35); color: #fff; }
+
+    section { padding: 4rem 0 0; }
+    .changes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; list-style: none; padding: 0; margin: 0; }
+    .changes li { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 1.3rem 1.4rem; }
+    .changes strong { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.25rem; margin-bottom: .35rem; }
+    .changes .was { color: #f2a08d; font-size: .92rem; display: block; margin-bottom: .3rem; }
+    .changes span:last-child { color: #c9dae4; }
+
+    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .gallery figure { margin: 0; }
+    .gallery img { width: 100%; border-radius: 12px; display: block; }
+    .gallery figcaption { font-size: .9rem; color: #c9dae4; margin-top: .4rem; }
+    footer { padding: 4rem 0 3rem; color: #8fa9b8; font-size: .85rem; }
+
+    @media (max-width: 760px) { .changes, .gallery { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <span class="led">AVANT → APRÈS</span>
+    <h1>Dem Dikk, refait autour du trajet.</h1>
+    <p class="lead">Le site actuel empile des affiches et des carrousels. La refonte part de ce qu'un voyageur vient chercher : sa ligne, son horaire, sa place. Faites glisser le curseur pour comparer les deux pages d'accueil.</p>
+  </header>
+
+  <main class="wrap">
+    <div class="compare" id="compare" style="--pos:50%">
+      <img src="assets/avant-hero.png" alt="Page d'accueil actuelle de demdikk.sn : bandeau de contact, carrousel d'affiches et alerte défilante.">
+      <img class="after" src="assets/apres-0.png" alt="Refonte : vrai bus Dem Dikk sur une route, logo officiel, titre « De Parcelles à Banjul, on vous emmène » et recherche de trajet.">
+      <span class="tag tag-before">Avant · demdikk.sn</span>
+      <span class="tag tag-after">Après · concept</span>
+      <div class="handle"></div>
+      <input type="range" min="0" max="100" value="50" aria-label="Position du curseur de comparaison">
+    </div>
+    <div class="actions">
+      <a class="btn btn-y" href="index.html">Ouvrir le nouveau site</a>
+      <a class="btn btn-o" href="https://demdikk.sn/" rel="noopener">Voir le site actuel</a>
+    </div>
+
+    <section>
+      <h2>Ce qui change</h2>
+      <ul class="changes">
+        <li><strong>Une page d'accueil qui bouge</strong><span class="was">Avant : l'accueil enchaîne des affiches chargées de texte, difficiles à lire sur téléphone.</span><span>Photos officielles en fondu avec zoom lent, titre qui apparaît mot à mot, bus détouré qui arrive et suit la souris, chevrons du logo animés.</span></li>
+        <li><strong>Trouver un trajet en deux clics</strong><span class="was">Avant : aucune recherche, les horaires sont dans les actualités.</span><span>Départ, arrivée, résultat parmi près de 50 lignes réelles, avec horaires et prix. Raccourcis pour les trajets fréquents.</span></li>
+        <li><strong>Toutes les lignes sur une page</strong><span class="was">Avant : une longue liste de texte sur une page à part.</span><span>Onglets Dakar urbain, Banlieue, TER, TAF TAF, Régions, International et Gares, avec un filtre instantané par arrêt ou numéro.</span></li>
+        <li><strong>Chaque réseau mis en valeur</strong><span class="was">Avant : quatre petites vignettes sombres pour présenter les offres de transport.</span><span>Grandes cartes inclinables avec photo, nombre de lignes et tarif, reliées directement aux horaires.</span></li>
+        <li><strong>Tout le contenu du site, enfin rangé</strong><span class="was">Avant : services, histoire et contact éparpillés sur 6 pages, « Offres d'emplois » en erreur 404.</span><span>Services en accordéon, frise historique, actionnariat, actualités, appli, emplois, carte et formulaire de contact sur une seule page.</span></li>
+        <li><strong>Un site sain</strong><span class="was">Avant : le code de la page d'accueil contient des centaines de liens cachés vers des sites de jeux d'argent (piratage SEO).</span><span>Code propre et léger, police lisible, navigation au clavier, animations réduites si le système le demande.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Bonus : le voyage en 3D</h2>
+      <p class="lead" style="margin-bottom:1.2rem">Plus bas sur la page, le vrai bus Dem Dikk (modélisé en 3D à partir de la photo officielle) traverse Dakar quand on fait défiler : Plateau, Corniche, Dieuppeul, Parcelles. Taxis jaunes, cars rapides, passants et coucher de soleil sur l'Atlantique.</p>
+      <div class="gallery">
+        <figure><img src="assets/apres-018.png" alt="Arrêt 1 : le bus Dem Dikk place de l'Indépendance, drapeaux du Sénégal et immeubles du Plateau." loading="lazy"><figcaption>Arrêt 1 · Place de l'Indépendance — réseau urbain</figcaption></figure>
+        <figure><img src="assets/apres-045.png" alt="Arrêt 2 : la Corniche à Ouakam, le monument de la Renaissance et le phare des Mamelles." loading="lazy"><figcaption>Arrêt 2 · Corniche, Ouakam — Express AIBD</figcaption></figure>
+        <figure><img src="assets/apres-066.png" alt="Arrêt 3 : la gare de Dieuppeul et ses bus Dem Dikk." loading="lazy"><figcaption>Arrêt 3 · Gare de Dieuppeul — Sénégal Dem Dikk</figcaption></figure>
+        <figure><img src="assets/apres-09.png" alt="Arrêt 4 : le terminus des Parcelles au coucher du soleil." loading="lazy"><figcaption>Arrêt 4 · Terminus des Parcelles — Afrique Dem Dikk</figcaption></figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">Concept de refonte non officiel, réalisé à titre de démonstration. Contenus repris de demdikk.sn ; marques et noms appartenant à Dakar Dem Dikk SA.</footer>
+
+  <script>
+    const cmp = document.getElementById('compare');
+    cmp.querySelector('input').addEventListener('input', e => cmp.style.setProperty('--pos', e.target.value + '%'));
+  </script>
+</body>
+</html>

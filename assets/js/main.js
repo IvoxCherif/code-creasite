@@ -120,3 +120,9 @@
     });
   });
 })();
+
+/* Curseur avant / après */
+document.querySelectorAll("[data-ba]").forEach(function (ba) {
+  var input = ba.querySelector("input");
+  input.addEventListener("input", function () { ba.style.setProperty("--pos", input.value + "%"); });
+});

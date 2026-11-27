@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dakar Dem Dikk — Concept de refonte</title>
+  <meta name="description" content="Concept de refonte non officiel du site de Dakar Dem Dikk : lignes urbaines, banlieue, TER, TAF TAF, Express AIBD, Sénégal Dem Dikk et Afrique Dem Dikk.">
+  <link rel="icon" href="assets/img/logo-icone.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=DotGothic16&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#trajet">Aller à la recherche de trajet</a>
+
+  <p class="concept">Concept de refonte non officiel — projet portfolio. Site officiel : <a href="https://demdikk.sn/" rel="noopener">demdikk.sn</a></p>
+
+  <!-- Barre d'infos -->
+  <div class="infobar">
+    <div class="wrap infobar-inner">
+      <a href="tel:+221338241010"><span class="ico" aria-hidden="true">☎</span>33 824 10 10</a>
+      <span><span class="ico" aria-hidden="true">⌖</span>Km 4,5 av. Cheikh Anta Diop, dépôt Ouakam</span>
+      <span><span class="ico" aria-hidden="true">◷</span>Lun – ven, 8 h – 17 h</span>
+      <a class="infobar-claim" href="#contact">Faire une réclamation →</a>
+    </div>
+  </div>
+
+  <header class="topbar" id="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#" aria-label="Dakar Dem Dikk, accueil">
+        <img src="assets/img/logo.png" alt="Dem Dikk" width="156" height="41">
+      </a>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a href="#offres">Offres</a>
+        <a href="#infos">Info voyageurs</a>
+        <a href="#services">Services</a>
+        <a href="#presentation">Présentation</a>
+        <a href="#actus">Actualités</a>
+        <a href="#contact">Contact</a>
+        <a href="#emplois">Emplois</a>
+      </nav>
+      <a class="btn btn-yellow btn-cta" href="tel:+221338241010">Réserver une place</a>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Accueil">
+      <div class="hero-slides" id="hero-slides">
+        <figure class="slide is-active" data-caption="Sénégal Dem Dikk · Toutes les régions par la route"><img src="assets/img/hero-route.webp" alt=""></figure>
+        <figure class="slide" data-caption="Express AIBD · L'esprit Téranga dès votre arrivée"><img src="assets/img/hero-aibd.webp" alt=""></figure>
+        <figure class="slide" data-caption="Dakar · Devant le monument de la Renaissance"><img src="assets/img/hero-monument.webp" alt="" style="object-position: 50% 15%"></figure>
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="chevrons" aria-hidden="true"><span></span><span></span><span></span></div>
+
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <p class="led-line" id="hero-led">DAKAR → GUINGUINEO · 5000 F</p>
+          <h1>De Parcelles à Banjul,<br><span class="hl">on vous emmène.</span></h1>
+          <p class="lead">Bus urbains, navettes vers l'aéroport, lignes vers toutes les régions et vers la sous-région. Un seul réseau public, depuis 2001.</p>
+          <div class="hero-actions">
+            <a class="btn btn-yellow" href="#trajet">Trouver mon trajet</a>
+            <a class="btn btn-glass" href="#infos">Voir toutes les lignes</a>
+          </div>
+          <div class="slide-nav" id="slide-nav" role="tablist" aria-label="Choisir une image">
+            <button role="tab" aria-selected="true" aria-label="Image 1"><i></i></button>
+            <button role="tab" aria-selected="false" aria-label="Image 2"><i></i></button>
+            <button role="tab" aria-selected="false" aria-label="Image 3"><i></i></button>
+            <span class="slide-caption" id="slide-caption">Sénégal Dem Dikk · Toutes les régions par la route</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-bus" id="hero-bus" aria-hidden="true">
+        <img src="assets/img/bus-blanc.webp" alt="">
+        <span class="bus-shadow"></span>
+      </div>
+    </section>
+
+    <!-- ============ RECHERCHE ============ -->
+    <section class="search" id="trajet" aria-labelledby="search-title">
+      <div class="wrap">
+        <form class="search-card" id="search-form" autocomplete="off">
+          <h2 id="search-title" class="search-title">Où allez-vous&nbsp;?</h2>
+          <div class="search-fields">
+            <label class="field">
+              <span>Départ</span>
+              <input name="from" id="from" list="stops" placeholder="Ex. Parcelles Assainies" required>
+            </label>
+            <button type="button" class="swap" id="swap" aria-label="Inverser départ et arrivée">⇄</button>
+            <label class="field">
+              <span>Arrivée</span>
+              <input name="to" id="to" list="stops" placeholder="Ex. Place Leclerc" required>
+            </label>
+            <label class="field field-sm">
+              <span>Réseau</span>
+              <select name="type" id="type">
+                <option value="">Tous</option>
+                <option value="urbain">Dakar urbain</option>
+                <option value="banlieue">Banlieue</option>
+                <option value="ter">Dessertes TER</option>
+                <option value="taftaf">TAF TAF</option>
+                <option value="interurbain">Régions</option>
+                <option value="international">International</option>
+              </select>
+            </label>
+            <button class="btn btn-teal search-btn" type="submit">Chercher</button>
+          </div>
+          <datalist id="stops"></datalist>
+          <div class="quick">
+            <span>Trajets fréquents :</span>
+            <button type="button" data-from="Parcelles Assainies" data-to="Place Leclerc">Parcelles → Leclerc</button>
+            <button type="button" data-from="Ouakam" data-to="AIBD">Ouakam → AIBD</button>
+            <button type="button" data-from="Dakar" data-to="Touba">Dakar → Touba</button>
+            <button type="button" data-from="Dakar" data-to="Banjul">Dakar → Banjul</button>
+          </div>
+          <div class="results" id="results" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ ALERTES ============ -->
+    <div class="ticker" aria-label="Info voyageurs">
+      <span class="ticker-label">ALERTE INFO</span>
+      <div class="ticker-track">
+        <p>LIGNE 01 · PARCELLES → LECLERC · 1ER DÉPART 05H30, DERNIER 20H30 · RETOUR 06H30 – 21H00 &nbsp;◆&nbsp; 7 NOUVEAUX ARRÊTS INTERURBAINS : MBIRKILANE · MALEM HODAR · NIORO DU RIP · KANEL · BOUNKILING · KOUMPENTOUM · MBACKÉ &nbsp;◆&nbsp; NOUVELLE DESTINATION DAKAR ⇄ GUINGUINEO · 5 000 F &nbsp;◆&nbsp; DAKAR → KIDIRA LUN · MER · SAM À 7H · 13 000 F &nbsp;◆&nbsp;</p>
+        <p aria-hidden="true">LIGNE 01 · PARCELLES → LECLERC · 1ER DÉPART 05H30, DERNIER 20H30 · RETOUR 06H30 – 21H00 &nbsp;◆&nbsp; 7 NOUVEAUX ARRÊTS INTERURBAINS : MBIRKILANE · MALEM HODAR · NIORO DU RIP · KANEL · BOUNKILING · KOUMPENTOUM · MBACKÉ &nbsp;◆&nbsp; NOUVELLE DESTINATION DAKAR ⇄ GUINGUINEO · 5 000 F &nbsp;◆&nbsp; DAKAR → KIDIRA LUN · MER · SAM À 7H · 13 000 F &nbsp;◆&nbsp;</p>
+      </div>
+    </div>
+
+    <!-- ============ À LA UNE ============ -->
+    <section class="une" aria-labelledby="une-title">
+      <div class="wrap une-head">
+        <div>
+          <p class="eyebrow">À la une</p>
+          <h2 id="une-title" class="section-title">Nouvelles dessertes et annonces</h2>
+        </div>
+        <div class="une-arrows">
+          <button class="round" id="une-prev" aria-label="Annonce précédente">←</button>
+          <button class="round" id="une-next" aria-label="Annonce suivante">→</button>
+        </div>
+      </div>
+      <div class="une-track" id="une-track" tabindex="0" aria-label="Affiches, faites glisser">
+        <button class="poster wide" data-full="assets/img/affiche-guinguineo.webp"><img src="assets/img/affiche-guinguineo.webp" alt="Nouvelle destination Dakar – Guinguineo, à partir du 3 février 2026, 5 000 F aller simple." loading="lazy"></button>
+        <button class="poster" data-full="assets/img/affiche-touba.webp"><img src="assets/img/affiche-touba.webp" alt="Nouvelle adresse : agence de Touba." loading="lazy"></button>
+        <button class="poster wide" data-full="assets/img/affiche-kidira.webp"><img src="assets/img/affiche-kidira.webp" alt="Nouvelle desserte Dakar – Kidira, lundi, mercredi et samedi à 7 h, 13 000 F aller simple." loading="lazy"></button>
+        <button class="poster" data-full="assets/img/affiche-kaffrine.webp"><img src="assets/img/affiche-kaffrine.webp" alt="Changement d'adresse : agence de Kaffrine." loading="lazy"></button>
+        <button class="poster" data-full="assets/img/affiche-tamba.webp"><img src="assets/img/affiche-tamba.webp" alt="Nouvelle adresse : agence de Tambacounda." loading="lazy"></button>
+        <button class="poster wide" data-full="assets/img/affiche-burd.webp"><img src="assets/img/affiche-burd.webp" alt="Burd 2026 à Tivaouane : départs du terminus Liberté 5, 5 000 F." loading="lazy"></button>
+        <button class="poster" data-full="assets/img/affiche-app.webp"><img src="assets/img/affiche-app.webp" alt="Téléchargez la nouvelle version de l'application Dem Dikk." loading="lazy"></button>
+      </div>
+    </section>
+
+    <!-- ============ OFFRES ============ -->
+    <section class="offres" id="offres" aria-labelledby="offres-title">
+      <div class="wrap">
+        <p class="eyebrow">Offres de transport</p>
+        <h2 id="offres-title" class="section-title">Quatre réseaux, un seul billet de confiance</h2>
+        <div class="offre-grid">
+          <a class="offre tilt" href="#infos" data-tab="urbain">
+            <img src="assets/img/offre-urbain.webp" alt="" loading="lazy">
+            <div class="offre-body">
+              <span class="badge">Réseau urbain</span>
+              <h3>Dakar Dem Dikk</h3>
+              <p>Dakar et sa banlieue, du premier départ à 5 h 30 au dernier bus du soir.</p>
+              <span class="more">30 lignes →</span>
+            </div>
+          </a>
+          <a class="offre tilt" href="#infos" data-tab="interurbain">
+            <img src="assets/img/offre-interurbain.webp" alt="" loading="lazy">
+            <div class="offre-body">
+              <span class="badge">Interurbain</span>
+              <h3>Sénégal Dem Dikk</h3>
+              <p>Toutes les régions du Sénégal à bord de bus connectés et confortables.</p>
+              <span class="more">80 lignes →</span>
+            </div>
+          </a>
+          <a class="offre tilt" href="#infos" data-tab="international">
+            <img src="assets/img/offre-afrique.webp" alt="" loading="lazy">
+            <div class="offre-body">
+              <span class="badge badge-red">International</span>
+              <h3>Afrique Dem Dikk</h3>
+              <p>Les capitales de la sous-région dans des bus modernes et sécurisés.</p>
+              <span class="more">Dakar → Banjul, 12 000 F →</span>
+            </div>
+          </a>
+          <a class="offre tilt" href="#infos" data-tab="taftaf">
+            <img src="assets/img/offre-aibd.webp" alt="" loading="lazy">
+            <div class="offre-body">
+              <span class="badge badge-yellow">Express</span>
+              <h3>Express AIBD</h3>
+              <p>L'esprit Téranga dès votre arrivée, à bord de bus climatisés.</p>
+              <span class="more">+221 78 184 58 23 →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VOYAGE 3D ============ -->
+    <section id="voyage" class="voyage" aria-label="Le réseau en 3D">
+      <div class="stage">
+        <canvas id="scene" aria-hidden="true"></canvas>
+
+        <div class="hero-copy" data-phase="intro">
+          <p class="led-line">VOYAGE 3D · FAITES DÉFILER</p>
+          <h2 class="voyage-title">Montez à bord,<br>on traverse Dakar.</h2>
+          <p class="lead">Faites défiler : du Plateau à la Corniche, de Dieuppeul aux Parcelles, le bus s'arrête là où partent nos quatre réseaux.</p>
+        </div>
+
+        <ol class="line-map" aria-label="Plan de ligne">
+          <li data-stop="0"><span class="dot"></span>Plateau</li>
+          <li data-stop="1"><span class="dot"></span>Ouakam</li>
+          <li data-stop="2"><span class="dot"></span>Dieuppeul</li>
+          <li data-stop="3"><span class="dot"></span>Parcelles</li>
+        </ol>
+
+        <article class="stop-card" data-stop="0">
+          <p class="stop-kicker">Arrêt 1 · Place de l'Indépendance</p>
+          <h3>Dakar Dem Dikk</h3>
+          <p>Réseau urbain : Dakar et sa banlieue, plus les navettes vers les gares du TER.</p>
+          <dl class="facts"><div><dt>40 M</dt><dd>voyageurs par an</dd></div><div><dt>4 M</dt><dd>déplacements réguliers</dd></div></dl>
+        </article>
+        <article class="stop-card" data-stop="1">
+          <p class="stop-kicker">Arrêt 2 · Corniche, Ouakam</p>
+          <h3>Express AIBD</h3>
+          <p>Au pied du monument de la Renaissance, le TAF TAF part de Ouakam vers l'AIBD par l'autoroute à péage.</p>
+          <dl class="facts"><div><dt>6 h – 21 h</dt><dd>dans les deux sens</dd></div></dl>
+        </article>
+        <article class="stop-card" data-stop="2">
+          <p class="stop-kicker">Arrêt 3 · Gare de Dieuppeul</p>
+          <h3>Sénégal Dem Dikk</h3>
+          <p>Départs vers toutes les régions : Touba, Kaffrine, Tambacounda, Kidira… Réservation au 77 589 36 23.</p>
+          <dl class="facts"><div><dt>80</dt><dd>lignes interurbaines</dd></div><div><dt>2,5 M</dt><dd>voyages par an</dd></div></dl>
+        </article>
+        <article class="stop-card" data-stop="3">
+          <p class="stop-kicker">Arrêt 4 · Terminus des Parcelles</p>
+          <h3>Afrique Dem Dikk</h3>
+          <p>Départ pour Banjul chaque jour à 7 h. Retour à 7 h 30 depuis Kanifing.</p>
+          <dl class="facts"><div><dt>12 000 F</dt><dd>l'aller Dakar–Banjul</dd></div></dl>
+        </article>
+
+        <p class="scroll-hint" aria-hidden="true">Faites défiler pour démarrer ↓</p>
+      </div>
+    </section>
+
+    <!-- ============ CHIFFRES ============ -->
+    <section class="chiffres" aria-label="Dem Dikk en chiffres">
+      <div class="wrap chiffres-grid">
+        <div class="stat"><strong data-count="40" data-suffix=" M">0</strong><span>voyageurs par an</span></div>
+        <div class="stat"><strong data-count="76" data-suffix="+">0</strong><span>destinations</span></div>
+        <div class="stat"><strong data-count="85" data-suffix=" %">0</strong><span>de clients satisfaits</span></div>
+        <div class="stat"><strong data-count="60" data-suffix="+">0</strong><span>années d'expérience</span></div>
+      </div>
+    </section>
+
+    <!-- ============ INFO VOYAGEURS ============ -->
+    <section class="infos" id="infos" aria-labelledby="infos-title">
+      <div class="wrap">
+        <p class="eyebrow">Info voyageurs</p>
+        <div class="infos-head">
+          <h2 id="infos-title" class="section-title">Toutes les lignes</h2>
+          <label class="filter">
+            <span class="visually-hidden">Filtrer les lignes</span>
+            <input type="search" id="line-filter" placeholder="Chercher un arrêt ou un numéro…">
+          </label>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Réseaux" id="tabs">
+          <button role="tab" aria-selected="true" data-tab="urbain">Dakar urbain</button>
+          <button role="tab" aria-selected="false" data-tab="banlieue">Banlieue</button>
+          <button role="tab" aria-selected="false" data-tab="ter">Dessertes TER</button>
+          <button role="tab" aria-selected="false" data-tab="taftaf">TAF TAF · AIBD</button>
+          <button role="tab" aria-selected="false" data-tab="interurbain">Régions</button>
+          <button role="tab" aria-selected="false" data-tab="international">International</button>
+          <button role="tab" aria-selected="false" data-tab="gares">Gares</button>
+        </div>
+        <div class="lines" id="lines" role="tabpanel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="wrap services-grid">
+        <div class="services-intro">
+          <p class="eyebrow">Services</p>
+          <h2 id="services-title" class="section-title">Au-delà du trajet</h2>
+          <p>Dem Dikk loue ses bus, transporte vos colis, affiche vos campagnes et répare des véhicules. Ouvrez un service pour voir le détail.</p>
+          <img class="services-bus" src="assets/img/bus-beige.webp" alt="Bus Dem Dikk beige vu de face" loading="lazy">
+        </div>
+        <div class="accordion" id="accordion">
+          <details open>
+            <summary><img src="assets/img/svc-location.jpg" alt=""><span>Location de bus avec chauffeur</span></summary>
+            <div class="acc-body">
+              <p>D'une journée à plusieurs semaines, d'une dizaine à plusieurs centaines de passagers, au Sénégal comme dans la sous-région. Une prestation sur mesure, adaptée à chaque budget.</p>
+              <ul class="ticks"><li><b>Sécurité :</b> maintenance stricte et régulière, normes réglementaires respectées.</li><li><b>Confort :</b> sièges, prises USB, écrans, climatisation.</li><li><b>Suivi personnalisé :</b> de l'analyse du besoin jusqu'à la fin de la prestation.</li></ul>
+            </div>
+          </details>
+          <details>
+            <summary><img src="assets/img/svc-abonnement.jpg" alt=""><span>Cartes d'abonnement</span></summary>
+            <div class="acc-body">
+              <p>Avec une carte d'abonnement, chacun se déplace facilement sur des réseaux interconnectés et multimodaux. Le parcours client continue au-delà du trajet.</p>
+            </div>
+          </details>
+          <details>
+            <summary><img src="assets/img/svc-pub.jpg" alt=""><span>Régie publicitaire</span></summary>
+            <div class="acc-body">
+              <p>Diffusez votre campagne sur le réseau de bus Dem Dikk et sa régie digitale, présente partout au Sénégal.</p>
+              <ul class="ticks"><li><b>Classique :</b> titres de voyage, affichage sur bus, full branding, dos de sièges, voussoirs.</li><li><b>Digitale :</b> écrans dynamiques, abribus, écrans embarqués.</li><li><b>Native :</b> application mobile, portail Wi-Fi à bord.</li></ul>
+            </div>
+          </details>
+          <details>
+            <summary><img src="assets/img/svc-courrier.jpg" alt=""><span>Messagerie : colis et courrier</span></summary>
+            <div class="acc-body">
+              <p>Vos colis arrivent à destination en 24 h, dans toutes les régions, grâce au réseau Sénégal Dem Dikk.</p>
+              <p class="warn"><b>Non acceptés :</b> chèques, produits périssables, téléphones, tablettes et ordinateurs, gaz inflammable, armes et objets tranchants.</p>
+            </div>
+          </details>
+          <details>
+            <summary><img src="assets/img/svc-marchandises.jpg" alt=""><span>Transport de marchandises</span></summary>
+            <div class="acc-body">
+              <p>Fret routier sécurisé sur tout le territoire national et à l'international, en sec comme en froid (Cold &amp; Dry).</p>
+            </div>
+          </details>
+          <details>
+            <summary><img src="assets/img/svc-mecanique.jpg" alt=""><span>Prestations mécaniques</span></summary>
+            <div class="acc-body">
+              <p>Le plateau technique de Dakar Dem Dikk entretient et répare aussi les véhicules d'autres flottes.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRÉSENTATION ============ -->
+    <section class="presentation" id="presentation" aria-labelledby="pres-title">
+      <div class="wrap pres-grid">
+        <div class="pres-photos">
+          <img class="ph-1" src="assets/img/flotte.webp" alt="Rangée de bus Dem Dikk au dépôt" loading="lazy">
+          <img class="ph-2" src="assets/img/passager.webp" alt="Un passager assis à bord d'un bus Dem Dikk" loading="lazy">
+          <div class="pres-badge"><strong>2001</strong><span>premier bus Dem Dikk sur les routes</span></div>
+        </div>
+        <div>
+          <p class="eyebrow">Présentation</p>
+          <h2 id="pres-title" class="section-title">Voyagez avec nous en toute <span class="hl-dark">sécurité</span></h2>
+          <p>Les habitudes de mobilité évoluent. Dem Dikk s'engage à opérer des services qui répondent aux besoins de tous les citoyens, dans le respect de l'équité, du professionnalisme et de l'innovation.</p>
+          <div class="vmav">
+            <div><h3>Vision</h3><p>Un service public de transport moderne, adapté aux exigences actuelles et futures.</p></div>
+            <div><h3>Mission</h3><p>Transporter les personnes et les biens partout au Sénégal et dans la sous-région, en sécurité.</p></div>
+            <div><h3>Ambition</h3><p>Un système global de transport performant au Sénégal et en Afrique de l'Ouest.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap timeline-wrap">
+        <h3 class="sub-title">Notre histoire</h3>
+        <ol class="timeline">
+          <li><time>30 déc. 2000</time><p>Création de Dakar Dem Dikk, après la Sotrac.</p></li>
+          <li><time>Janv. 2001</time><p>Démarrage des activités à Dakar et en banlieue.</p></li>
+          <li><time>2016</time><p>Arrivée de 475 bus Ashok Leyland et de nouvelles lignes urbaines.</p></li>
+          <li><time>1er fév. 2017</time><p>Lancement de Sénégal Dem Dikk vers les villes de l'intérieur.</p></li>
+          <li><time>2026</time><p>Dem Dikk au cœur du transport des JOJ Dakar 2026.</p></li>
+        </ol>
+      </div>
+
+      <div class="wrap share-wrap">
+        <div>
+          <h3 class="sub-title">Actionnariat</h3>
+          <p>Capital social de 1,5 milliard de F CFA, détenu majoritairement par l'État du Sénégal.</p>
+        </div>
+        <ul class="shares" id="shares">
+          <li style="--v:76.66"><span>État du Sénégal</span><b>76,66 %</b><i></i></li>
+          <li style="--v:13.33"><span>GIE And Ligueey Diarignou (anciens de la Sotrac)</span><b>13,33 %</b><i></i></li>
+          <li style="--v:3.33"><span>CNART Assurances</span><b>3,33 %</b><i></i></li>
+          <li style="--v:3.33"><span>Senecartours</span><b>3,33 %</b><i></i></li>
+          <li style="--v:3.33"><span>GIE Solidarité</span><b>3,33 %</b><i></i></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ BANNIÈRE ============ -->
+    <section class="proche" aria-label="Encore plus proche de vous">
+      <img src="assets/img/banniere-proche.webp" alt="Bus Dem Dikk et voyageur : encore plus proche de vous." loading="lazy">
+    </section>
+
+    <!-- ============ ACTUALITÉS ============ -->
+    <section class="actus" id="actus" aria-labelledby="actus-title">
+      <div class="wrap">
+        <div class="une-head">
+          <div>
+            <p class="eyebrow">Articles récents</p>
+            <h2 id="actus-title" class="section-title">Nos dernières actualités</h2>
+          </div>
+          <a class="btn btn-outline" href="https://demdikk.sn/" rel="noopener">Toute l'actualité</a>
+        </div>
+        <div class="actu-grid">
+          <a class="actu" href="https://demdikk.sn/dem-dikk-renforce-son-partenariat-avec-lonpn/" rel="noopener">
+            <div class="actu-img"><img src="assets/img/actu-onpn.jpg" alt="" loading="lazy"></div>
+            <time datetime="2026-11-26">26 novembre 2026</time>
+            <h3>Dem Dikk renforce son partenariat avec l'ONPN</h3>
+          </a>
+          <a class="actu" href="https://demdikk.sn/joj-dakar-2026-le-departement-transport-du-cojoj-adresse-ses-remerciements-a-dem-dikk/" rel="noopener">
+            <div class="actu-img"><img src="assets/img/actu-cojoj.jpg" alt="" loading="lazy"></div>
+            <time datetime="2026-11-24">24 novembre 2026</time>
+            <h3>JOJ Dakar 2026 : le département Transport du COJOJ remercie Dem Dikk</h3>
+          </a>
+          <a class="actu" href="https://demdikk.sn/joj-dakar-2026-demdikk-au-coeur-du-dispositif-de-transport/" rel="noopener">
+            <div class="actu-img"><img src="assets/img/actu-joj.jpg" alt="" loading="lazy"></div>
+            <time datetime="2026-11-02">2 novembre 2026</time>
+            <h3>JOJ Dakar 2026 : Dem Dikk au cœur du dispositif de transport</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ APPLI ============ -->
+    <section class="app" aria-labelledby="app-title">
+      <div class="wrap app-inner">
+        <div>
+          <p class="eyebrow eyebrow-dark">Application Dem Dikk</p>
+          <h2 id="app-title" class="section-title">Votre place réservée, depuis votre téléphone</h2>
+          <p>Réservez un trajet interurbain, recevez les alertes de votre ligne et gardez vos billets avec vous.</p>
+          <div class="badges">
+            <a href="https://apps.apple.com/sn/app/dem-dikk/id6476461159?l=fr-FR" rel="noopener"><img src="assets/img/badge-appstore.png" alt="Télécharger dans l'App Store" width="131" height="42"></a>
+            <a href="https://play.google.com/store/apps/details?id=sn.demdikk.reservation.ddd_reservation" rel="noopener"><img src="assets/img/badge-playstore.png" alt="Disponible sur Google Play" width="131" height="42"></a>
+          </div>
+        </div>
+        <img class="app-visual tilt" src="assets/img/affiche-app.webp" alt="Affiche : téléchargez la nouvelle version de l'application Dem Dikk." loading="lazy">
+      </div>
+    </section>
+
+    <!-- ============ EMPLOIS ============ -->
+    <section class="emplois" id="emplois" aria-labelledby="emplois-title">
+      <div class="wrap emplois-inner">
+        <div>
+          <h2 id="emplois-title" class="section-title">Rejoindre Dem Dikk</h2>
+          <p>Conducteurs, mécaniciens, agents commerciaux, ingénieurs : envoyez votre candidature spontanée. Les offres publiées apparaîtront ici.</p>
+        </div>
+        <a class="btn btn-yellow" href="mailto:info@demdikk.sn?subject=Candidature%20spontan%C3%A9e">Envoyer ma candidature</a>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="eyebrow">Service clientèle</p>
+          <h2 id="contact-title" class="section-title">Une question, une réclamation&nbsp;?</h2>
+          <ul class="contact-list">
+            <li><b>Direction générale</b>Km 4,5 avenue Cheikh Anta Diop, dépôt Ouakam</li>
+            <li><b>Téléphone</b><a href="tel:+221338241010">+221 33 824 10 10</a> · <a href="tel:+221338651555">+221 33 865 15 55</a></li>
+            <li><b>Express AIBD</b><a href="tel:+221781845823">78 184 58 23</a> · <a href="tel:+221781845833">78 184 58 33</a> · <a href="tel:+221781846048">78 184 60 48</a></li>
+            <li><b>E-mail</b><a href="mailto:info@demdikk.sn">info@demdikk.sn</a> · <a href="mailto:contact@demdikk.sn">contact@demdikk.sn</a></li>
+          </ul>
+          <div class="map">
+            <iframe title="Carte : direction générale de Dakar Dem Dikk" src="https://www.google.com/maps?q=Dakar%20Dem%20Dikk%20Avenue%20Cheikh%20Anta%20Diop%20Dakar&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <label class="field"><span>Nom complet</span><input name="nom" required autocomplete="name"></label>
+          <div class="two">
+            <label class="field"><span>Téléphone</span><input name="tel" type="tel" autocomplete="tel"></label>
+            <label class="field"><span>E-mail</span><input name="email" type="email" autocomplete="email"></label>
+          </div>
+          <label class="field"><span>Objet</span>
+            <select name="objet">
+              <option>Réclamation</option>
+              <option>Location de bus</option>
+              <option>Abonnement</option>
+              <option>Publicité</option>
+              <option>Colis et marchandises</option>
+              <option>Autre demande</option>
+            </select>
+          </label>
+          <label class="field"><span>Message</span><textarea name="message" rows="5" required></textarea></label>
+          <button class="btn btn-teal" type="submit">Préparer l'e-mail</button>
+          <p class="form-note" id="form-note">Le bouton ouvre votre messagerie avec un e-mail prêt pour contact@demdikk.sn.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div>
+        <img src="assets/img/logo.png" alt="Dem Dikk" width="156" height="41" class="footer-logo">
+        <p>Opérateur public leader des transports terrestres au Sénégal et en Afrique de l'Ouest.</p>
+        <div class="badges">
+          <a href="https://apps.apple.com/sn/app/dem-dikk/id6476461159?l=fr-FR" rel="noopener"><img src="assets/img/badge-appstore.png" alt="App Store" width="131" height="42"></a>
+          <a href="https://play.google.com/store/apps/details?id=sn.demdikk.reservation.ddd_reservation" rel="noopener"><img src="assets/img/badge-playstore.png" alt="Google Play" width="131" height="42"></a>
+        </div>
+      </div>
+      <div>
+        <h3>Liens utiles</h3>
+        <ul>
+          <li>Ministère des Transports terrestres et aériens</li>
+          <li>Ministère des Finances et du Budget</li>
+          <li>CETUD — Conseil exécutif des transports urbains durables</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Heures d'ouverture</h3>
+        <p>Direction générale<br>Lundi – vendredi, 8 h – 17 h</p>
+        <h3>Newsletter</h3>
+        <form class="newsletter" id="newsletter">
+          <label class="visually-hidden" for="nl-mail">Votre adresse e-mail</label>
+          <input id="nl-mail" type="email" placeholder="Votre e-mail" required>
+          <button class="btn btn-yellow" type="submit">S'inscrire</button>
+        </form>
+        <p class="form-note" id="nl-note"></p>
+      </div>
+    </div>
+    <p class="wrap footer-note">© 2026 Dem Dikk SA. Concept de refonte non officiel, réalisé à titre de démonstration ; logo, photos et contenus repris de demdikk.sn.</p>
+  </footer>
+
+  <a class="to-top" href="#" id="to-top" aria-label="Revenir en haut">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17"/><circle class="ring" cx="20" cy="20" r="17" pathLength="100"/></svg>
+    <span>↑</span>
+  </a>
+
+  <dialog class="lightbox" id="lightbox">
+    <button class="lb-close" id="lb-close" aria-label="Fermer">×</button>
+    <img id="lb-img" alt="">
+  </dialog>
+
+  <script src="app.js" defer></script>
+  <script src="vendor/three-bundle.js" defer></script>
+  <script src="assets/models/models.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>
