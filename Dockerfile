@@ -2,6 +2,6 @@
 FROM caddy:2-alpine
 
 COPY deploy/Caddyfile /etc/caddy/Caddyfile
-COPY *.html /srv/
+COPY *.html sitemap.xml robots.txt /srv/
 COPY assets /srv/assets
 COPY projets /srv/projets
