@@ -1,10 +1,33 @@
 # codecréa.com (nom de domaine accentué = xn--codecra-gya.com en punycode)
+
+# En-têtes de sécurité, appliqués aux pages normales ET à la page 404
+(securite) {
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+		Cross-Origin-Opener-Policy "same-origin"
+		# CSP en mode test (Report-Only) : rien n'est bloqué, les violations s'affichent
+		# dans la console du navigateur. Passer en « Content-Security-Policy » après validation.
+		Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' data: blob:; media-src 'self'; frame-src https://www.google.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+		-Server
+	}
+}
+
 www.xn--codecra-gya.com {
+	import securite
 	redir https://xn--codecra-gya.com{uri} permanent
 }
 
 xn--codecra-gya.com {
+	import securite
 	root * /srv
+
+	# Site statique : seules la lecture (GET) et HEAD sont acceptées
+	@methodes_interdites not method GET HEAD
+	respond @methodes_interdites 405
 
 	# Adresses sans .html : /realisations sert realisations.html,
 	# et les anciennes adresses en .html sont redirigées (301) vers la version propre.
@@ -16,19 +39,12 @@ xn--codecra-gya.com {
 	encode zstd gzip
 	file_server
 
-	header {
-		Strict-Transport-Security "max-age=31536000"
-		X-Content-Type-Options "nosniff"
-		X-Frame-Options "SAMEORIGIN"
-		Referrer-Policy "strict-origin-when-cross-origin"
-		-Server
-	}
-
 	@static path /assets/*
 	header @static Cache-Control "public, max-age=604800"
 
 	# Page 404 personnalisée (le code 404 est conservé)
 	handle_errors 404 {
+		import securite
 		root * /srv
 		rewrite * /404.html
 		file_server
