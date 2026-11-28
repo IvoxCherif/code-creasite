@@ -223,7 +223,9 @@
           ${l.route ? `<p class="route">${l.route}</p>` : ''}
         </div>`).join('');
     }
-    linesEl.innerHTML = html || `<p class="empty">Aucune ligne ne correspond à « ${filter.value} ». Vérifiez l'orthographe ou appelez le 33 824 10 10.</p>`;
+    // Le texte tapé est échappé avant d'être réaffiché (évite une injection HTML/JS)
+    const typed = filter.value.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    linesEl.innerHTML = html || `<p class="empty">Aucune ligne ne correspond à « ${typed} ». Vérifiez l'orthographe ou appelez le 33 824 10 10.</p>`;
   }
   function selectTab(t) {
     tab = t;
@@ -260,7 +262,8 @@
     document.documentElement.style.scrollBehavior = 'auto';
     $$('[data-count]').forEach(countUp); $('.timeline').style.setProperty('--tl', 1); $('.shares').classList.add('is-in');
     // la capture sans tête ne sait pas défiler : on masque ce qui précède la rubrique visée
-    const t = location.hash && document.querySelector(location.hash);
+    let t = null;
+    try { t = location.hash && document.querySelector(location.hash); } catch { t = null; } // ancre invalide : on ignore
     if (t) {
       $$('.concept, .infobar, .topbar').forEach(el => el.style.display = 'none');
       let el = t; while (el.parentElement !== document.body) el = el.parentElement;
@@ -275,10 +278,8 @@
   /* ---------- Formulaires ---------- */
   $('#contact-form').addEventListener('submit', e => {
     e.preventDefault();
-    const d = new FormData(e.target);
-    const body = `Nom : ${d.get('nom')}\nTéléphone : ${d.get('tel')}\nE-mail : ${d.get('email')}\n\n${d.get('message')}`;
-    location.href = `mailto:contact@demdikk.sn?subject=${encodeURIComponent(d.get('objet') + ' — site web')}&body=${encodeURIComponent(body)}`;
-    $('#form-note').textContent = 'Votre messagerie s\'ouvre avec l\'e-mail prêt. Il ne reste qu\'à l\'envoyer.';
+    // Concept non officiel : aucun message n'est envoyé à la vraie entreprise
+    $('#form-note').textContent = 'Démo : ce site est un concept non officiel, aucun message n\'est envoyé. Pour joindre Dakar Dem Dikk, utilisez demdikk.sn.';
   });
   $('#newsletter').addEventListener('submit', e => {
     e.preventDefault();

@@ -70,7 +70,7 @@
     </div>
     <div class="actions">
       <a class="btn btn-y" href="index.html">Ouvrir le nouveau site</a>
-      <a class="btn btn-o" href="https://demdikk.sn/" rel="noopener">Voir le site actuel</a>
+      <a class="btn btn-o" href="https://demdikk.sn/" rel="noopener noreferrer">Voir le site actuel</a>
     </div>
 
     <section>
@@ -99,9 +99,6 @@
 
   <footer class="wrap">Concept de refonte non officiel, réalisé à titre de démonstration. Contenus repris de demdikk.sn ; marques et noms appartenant à Dakar Dem Dikk SA.</footer>
 
-  <script>
-    const cmp = document.getElementById('compare');
-    cmp.querySelector('input').addEventListener('input', e => cmp.style.setProperty('--pos', e.target.value + '%'));
-  </script>
+  <script src="comparaison.js"></script>
 </body>
 </html>
