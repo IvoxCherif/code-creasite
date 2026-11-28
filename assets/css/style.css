@@ -536,3 +536,6 @@ html.leaving body { opacity: 0; transform: translateY(-10px); transition: opacit
 .case-gallery a:hover img { transform: translateY(-3px); border-color: rgba(43,184,245,.5); }
 .case-gallery figcaption { margin-top: 8px; font-size: .85rem; color: var(--muted); }
 @media (max-width: 760px) { .case-gallery { grid-template-columns: 1fr; } }
+
+/* Page 404 */
+.big-404 { font-family: var(--font-title); font-weight: 800; font-size: clamp(6rem, 22vw, 13rem); line-height: .9; letter-spacing: -.05em; margin: 0 0 10px; }
