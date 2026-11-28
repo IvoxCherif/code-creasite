@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>X6 M Competition — Boutique en ligne</title>
+  <meta name="description" content="Découvrez et réservez la BMW X6 M Competition : V8 4.4 biturbo 625 ch, 750 Nm, 0-100 km/h en 3,9 s." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=3" />
+</head>
+<body>
+
+  <!-- ============ LOADER ============ -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-m"><span></span><span></span><span></span></div>
+      <p class="loader-txt">X6 M Competition</p>
+      <div class="loader-bar"><i id="loaderBar"></i></div>
+    </div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand"><span class="m-stripes"><i></i><i></i><i></i></span>X6 M Competition</a>
+      <nav class="nav-links">
+        <a href="#design">Design</a>
+        <a href="#performance">Performance</a>
+        <a href="#interieur">Intérieur</a>
+        <a href="#specs">Fiche technique</a>
+        <a href="#configurer">Configurer</a>
+        <a href="#accessoires">Accessoires</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Panier">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <a href="#configurer" class="btn btn-sm">Réserver</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero-bg"><img src="assets/img/2.jpg" alt="" /></div>
+      <div class="hero-content">
+        <p class="eyebrow reveal">Nouvelle BMW</p>
+        <h1 class="hero-title reveal" data-split="chars">X6 M<br /><span class="grad">Competition</span></h1>
+        <p class="hero-sub reveal">625 ch. 750 Nm. 3,9 s. Le SUV coupé le plus radical de BMW M.</p>
+        <div class="hero-cta reveal">
+          <a href="#configurer" class="btn">Configurer — dès 163 300 €</a>
+          <a href="#design" class="btn btn-ghost">Découvrir ›</a>
+        </div>
+      </div>
+      <div class="scroll-hint"><span></span>Faites défiler</div>
+    </section>
+
+    <!-- ============ SCROLL VIDEO 1 : EXTERIEUR ============ -->
+    <section class="seq seq-light" id="design" data-seq="ext" data-fit="contain" style="--seq-h: 500vh">
+      <div class="seq-sticky">
+        <canvas class="seq-canvas"></canvas>
+        <div class="seq-overlay">
+          <div class="seq-text" data-from="0.02" data-to="0.22">
+            <p class="eyebrow">Design</p>
+            <h2 data-split>Une présence<br />qui s'impose.</h2>
+          </div>
+          <div class="seq-text right" data-from="0.26" data-to="0.46">
+            <h3>Calandre M illuminée</h3>
+            <p>Doubles naseaux « Iconic Glow » et phares BMW Laserlight avec signature en L.</p>
+          </div>
+          <div class="seq-text" data-from="0.50" data-to="0.70">
+            <h3>21" à l'avant. 22" à l'arrière.</h3>
+            <p>Jantes M forgées à rayons en Y, pneus 295/35 R21 et 315/30 R22, freins M Compound.</p>
+          </div>
+          <div class="seq-text right" data-from="0.74" data-to="0.96">
+            <h3>Silhouette coupé</h3>
+            <p>Ligne de toit fuyante, becquet M et quatre sorties d'échappement M Sport à clapets.</p>
+          </div>
+        </div>
+        <div class="seq-progress"><i></i></div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="stats" id="performance">
+      <div class="container">
+        <p class="eyebrow center reveal">Performance</p>
+        <h2 data-split class="section-title center reveal">Des chiffres<br /><span class="grad">qui donnent le vertige.</span></h2>
+        <div class="stats-grid">
+          <div class="stat reveal tilt"><span class="stat-num" data-count="625">0</span><span class="stat-unit">ch</span><p>V8 M TwinPower Turbo 4,4 L + hybridation légère 48 V</p></div>
+          <div class="stat reveal tilt"><span class="stat-num" data-count="750">0</span><span class="stat-unit">Nm</span><p>de couple disponible de 1 800 à 5 800 tr/min</p></div>
+          <div class="stat reveal tilt"><span class="stat-num" data-count="3.9" data-decimals="1">0</span><span class="stat-unit">s</span><p>de 0 à 100 km/h (3,6 s en « 1-foot rollout »)</p></div>
+          <div class="stat reveal tilt"><span class="stat-num" data-count="290">0</span><span class="stat-unit">km/h</span><p>avec le M Driver's Package (250 km/h bridée de série)</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee">
+        <span>625 CH<i></i></span><span class="fill">750 NM<i></i></span><span>3,9 S<i></i></span><span class="fill">V8 BITURBO<i></i></span><span>M xDRIVE<i></i></span><span class="fill">290 KM/H<i></i></span>
+        <span>625 CH<i></i></span><span class="fill">750 NM<i></i></span><span>3,9 S<i></i></span><span class="fill">V8 BITURBO<i></i></span><span>M xDRIVE<i></i></span><span class="fill">290 KM/H<i></i></span>
+      </div>
+    </section>
+
+    <!-- ============ ENGINE ============ -->
+    <section class="feature">
+      <div class="container feature-grid">
+        <div class="feature-img reveal-img tilt"><img src="assets/img/3.jpg" alt="X6 M Competition noire vue arrière trois-quarts" /></div>
+        <div class="feature-txt">
+          <p class="eyebrow reveal">Moteur S68</p>
+          <h2 data-split class="section-title reveal">Le cœur<br />d'une bête.</h2>
+          <p class="lead reveal">Le V8 biturbo S68 de 4 395 cm³ reçoit un moteur électrique 48 V de 9 kW et 200 Nm qui comble chaque temps de réponse. Résultat : une poussée instantanée et une sonorité envoûtante grâce à l'échappement M Sport à clapets.</p>
+          <ul class="ticks reveal">
+            <li>Boîte M Steptronic 8 rapports avec Drivelogic</li>
+            <li>Transmission intégrale M xDrive, différentiel M actif</li>
+            <li>Mode 4WD Sport pour plus de dynamisme</li>
+            <li>Bouton M Setup et palettes au volant</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PARALLAX BAND ============ -->
+    <section class="band">
+      <div class="band-img" data-parallax="0.25"><img src="assets/img/1.jpg" alt="X6 M Competition blanche" /></div>
+      <div class="band-txt">
+        <h2 class="reveal" data-split>Conçue pour la piste.<br /><span class="grad">Taillée pour la ville.</span></h2>
+      </div>
+    </section>
+
+    <!-- ============ SCROLL VIDEO 2 : INTERIEUR ============ -->
+    <section class="seq seq-dark" id="interieur" data-seq="int" style="--seq-h: 450vh">
+      <div class="seq-sticky">
+        <canvas class="seq-canvas"></canvas>
+        <div class="seq-overlay">
+          <div class="seq-text" data-from="0.02" data-to="0.24">
+            <p class="eyebrow">Intérieur</p>
+            <h2 data-split>Entrez dans<br />le cockpit.</h2>
+          </div>
+          <div class="seq-text right" data-from="0.30" data-to="0.55">
+            <h3>BMW Curved Display</h3>
+            <p>Écran 12,3" + 14,9" sous une seule dalle incurvée, iDrive 8.5 et affichage tête haute M.</p>
+          </div>
+          <div class="seq-text" data-from="0.62" data-to="0.96">
+            <h3>Sièges M Multifonction</h3>
+            <p>Cuir Merino étendu Sakhir Orange, matelassage hexagonal et logo X6 M rétroéclairé.</p>
+          </div>
+        </div>
+        <div class="seq-progress"><i></i></div>
+      </div>
+    </section>
+
+    <!-- ============ INTERIOR GALLERY ============ -->
+    <section class="gallery">
+      <div class="container">
+        <p class="eyebrow center reveal">Savoir-faire</p>
+        <h2 data-split class="section-title center reveal">Chaque détail<br /><span class="grad">a été pensé.</span></h2>
+        <div class="gallery-grid">
+          <figure class="g-item g-wide reveal-img"><img src="assets/img/8.jpg" alt="Planche de bord X6 M" /><figcaption>Planche de bord en cuir Merino</figcaption></figure>
+          <figure class="g-item reveal-img"><img src="assets/img/7.jpg" alt="Sièges M" /><figcaption>Sièges M Multifonction</figcaption></figure>
+          <figure class="g-item reveal-img"><img src="assets/img/6.jpg" alt="Poste de conduite" /><figcaption>Poste de conduite</figcaption></figure>
+          <figure class="g-item g-wide reveal-img"><img src="assets/img/5.jpg" alt="Banquette arrière" /><figcaption>Banquette arrière, éclairage d'ambiance</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SPECS ============ -->
+    <section class="specs" id="specs">
+      <div class="container">
+        <p class="eyebrow center reveal">Fiche technique</p>
+        <h2 data-split class="section-title center reveal">Tout ce qu'il faut savoir.</h2>
+        <div class="specs-tabs reveal" role="tablist">
+          <button class="tab active" data-tab="moteur">Moteur</button>
+          <button class="tab" data-tab="perf">Performances</button>
+          <button class="tab" data-tab="dims">Dimensions</button>
+          <button class="tab" data-tab="conso">Consommation</button>
+        </div>
+        <div class="specs-panels">
+          <dl class="panel active" data-panel="moteur">
+            <div><dt>Architecture</dt><dd>V8 M TwinPower Turbo (S68)</dd></div>
+            <div><dt>Cylindrée</dt><dd>4 395 cm³</dd></div>
+            <div><dt>Puissance</dt><dd>460 kW (625 ch) à 6 000 tr/min</dd></div>
+            <div><dt>Couple</dt><dd>750 Nm de 1 800 à 5 800 tr/min</dd></div>
+            <div><dt>Hybridation</dt><dd>48 V — 9 kW (12 ch) / 200 Nm</dd></div>
+            <div><dt>Boîte</dt><dd>M Steptronic 8 rapports, Drivelogic</dd></div>
+            <div><dt>Transmission</dt><dd>M xDrive, différentiel M actif</dd></div>
+          </dl>
+          <dl class="panel" data-panel="perf">
+            <div><dt>0-100 km/h</dt><dd>3,9 s</dd></div>
+            <div><dt>0-100 km/h (1-foot rollout)</dt><dd>3,6 s</dd></div>
+            <div><dt>Vitesse max.</dt><dd>250 km/h (bridée)</dd></div>
+            <div><dt>Avec M Driver's Package</dt><dd>290 km/h</dd></div>
+            <div><dt>Freins</dt><dd>M Compound (option M Carbon céramique)</dd></div>
+            <div><dt>Pneumatiques</dt><dd>AV 295/35 R21 — AR 315/30 R22</dd></div>
+          </dl>
+          <dl class="panel" data-panel="dims">
+            <div><dt>Longueur</dt><dd>4 948 mm</dd></div>
+            <div><dt>Largeur (sans / avec rétros)</dt><dd>2 019 / 2 212 mm</dd></div>
+            <div><dt>Hauteur</dt><dd>1 695 mm</dd></div>
+            <div><dt>Empattement</dt><dd>2 972 mm</dd></div>
+            <div><dt>Poids à vide</dt><dd>2 445 kg</dd></div>
+            <div><dt>Coffre</dt><dd>580 – 1 530 L</dd></div>
+            <div><dt>Réservoir</dt><dd>83 L</dd></div>
+          </dl>
+          <dl class="panel" data-panel="conso">
+            <div><dt>Consommation mixte WLTP</dt><dd>12,8 – 12,6 L/100 km</dd></div>
+            <div><dt>Émissions CO₂ WLTP</dt><dd>289 – 285 g/km</dd></div>
+            <div><dt>Classe CO₂</dt><dd>G</dd></div>
+            <div><dt>Norme</dt><dd>Euro 6e</dd></div>
+            <div><dt>Carburant</dt><dd>Sans plomb 98 recommandé</dd></div>
+          </dl>
+        </div>
+        <p class="note reveal">Sources : données constructeur BMW (fiche technique X6 M Competition F96 LCI). Valeurs WLTP susceptibles de varier selon l'équipement.</p>
+      </div>
+    </section>
+
+    <!-- ============ CONFIGURATOR / SHOP ============ -->
+    <section class="config" id="configurer">
+      <div class="container config-grid">
+        <div class="config-visual">
+          <div class="config-stage">
+            <img id="configImg" src="assets/img/4.jpg" alt="Votre X6 M Competition" />
+            <div class="config-tint" id="configTint"></div>
+          </div>
+          <p class="config-caption" id="configCaption">Frozen Pure Grey métallisé</p>
+        </div>
+        <div class="config-panel">
+          <p class="eyebrow">Boutique</p>
+          <h2 data-split class="section-title small">Configurez votre<br />X6 M Competition.</h2>
+
+          <div class="opt-group">
+            <h4>Teinte extérieure</h4>
+            <div class="swatches" id="swatches">
+              <button class="sw active" data-name="Frozen Pure Grey métallisé" data-price="4900" data-img="assets/img/4.jpg" data-tint="transparent" style="--c:#7d7f80"></button>
+              <button class="sw" data-name="Frozen Deep Grey (mat)" data-price="4900" data-img="assets/img/2.jpg" data-tint="transparent" style="--c:#4a4c4f"></button>
+              <button class="sw" data-name="Blanc Alpin" data-price="0" data-img="assets/img/1.jpg" data-tint="transparent" style="--c:#f2f2f0"></button>
+              <button class="sw" data-name="Noir Saphir métallisé" data-price="1300" data-img="assets/img/3.jpg" data-tint="transparent" style="--c:#111"></button>
+            </div>
+            <p class="opt-label" id="colorLabel">Frozen Pure Grey métallisé · <b>+4 900 €</b></p>
+          </div>
+
+          <div class="opt-group">
+            <h4>Sellerie</h4>
+            <div class="chips" data-group="sellerie">
+              <button class="chip active" data-price="0" data-name="Merino Sakhir Orange / Noir">Merino Sakhir Orange</button>
+              <button class="chip" data-price="0" data-name="Merino Noir">Merino Noir</button>
+              <button class="chip" data-price="1900" data-name="Merino Individual Ivoire">Ivoire Individual +1 900 €</button>
+            </div>
+          </div>
+
+          <div class="opt-group">
+            <h4>Packs</h4>
+            <label class="pack"><input type="checkbox" data-price="2700" data-name="M Driver's Package (290 km/h)" /><span><b>M Driver's Package</b><small>Vmax 290 km/h + stage de pilotage BMW M</small></span><em>+2 700 €</em></label>
+            <label class="pack"><input type="checkbox" data-price="5900" data-name="Pack Carbone M" /><span><b>Pack Carbone M</b><small>Lame, rétroviseurs, diffuseur, becquet en carbone</small></span><em>+5 900 €</em></label>
+            <label class="pack"><input type="checkbox" data-price="4500" data-name="Bowers & Wilkins Diamond" /><span><b>Bowers &amp; Wilkins Diamond</b><small>Système audio surround 1 500 W, 20 haut-parleurs</small></span><em>+4 500 €</em></label>
+            <label class="pack"><input type="checkbox" data-price="8800" data-name="Freins M Carbon céramique" /><span><b>Freins M Carbon céramique</b><small>Étriers dorés, -23 kg de masses non suspendues</small></span><em>+8 800 €</em></label>
+          </div>
+
+          <div class="summary">
+            <div class="sum-row"><span>Prix de base</span><span>163 300 €</span></div>
+            <div class="sum-row"><span>Options</span><span id="optTotal">4 900 €</span></div>
+            <div class="sum-row total"><span>Total TTC</span><span id="grandTotal">168 200 €</span></div>
+            <div class="sum-row lease"><span>ou en LOA</span><span id="lease">1 990 €/mois*</span></div>
+            <button class="btn btn-block" id="reserveBtn">Réserver avec un acompte de 5 000 €</button>
+            <p class="note">*Exemple indicatif sur 48 mois / 40 000 km, après apport. Prix et options indicatifs — à confirmer en concession.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ACCESSORIES ============ -->
+    <section class="acc" id="accessoires">
+      <div class="container">
+        <p class="eyebrow center reveal">Accessoires &amp; lifestyle</p>
+        <h2 data-split class="section-title center reveal">Complétez l'expérience.</h2>
+        <div class="acc-grid" id="accGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="final">
+      <div class="final-bg"><img src="assets/img/2.jpg" alt="" /></div>
+      <div class="final-txt">
+        <h2 class="reveal" data-split>Prête à prendre la route.</h2>
+        <p class="reveal">Essai privé sur rendez-vous, livraison à domicile partout en France.</p>
+        <div class="hero-cta reveal">
+          <a href="#configurer" class="btn">Réserver maintenant</a>
+          <button class="btn btn-ghost" id="testDriveBtn">Demander un essai</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#top" class="brand"><span class="m-stripes"><i></i><i></i><i></i></span>X6 M Competition</a>
+        <p class="note">Site vitrine non officiel. BMW, M et X6 sont des marques de BMW AG.</p>
+      </div>
+      <div><h5>Découvrir</h5><a href="#design">Design</a><a href="#performance">Performance</a><a href="#interieur">Intérieur</a></div>
+      <div><h5>Acheter</h5><a href="#configurer">Configurer</a><a href="#accessoires">Accessoires</a><a href="#specs">Fiche technique</a></div>
+      <div><h5>Contact</h5><span>Lun – Sam · 9h – 19h</span><span>Showroom sur rendez-vous</span></div>
+    </div>
+  </footer>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="drawer-backdrop" id="backdrop"></div>
+  <aside class="drawer" id="drawer" aria-label="Panier">
+    <div class="drawer-head"><h3>Votre panier</h3><button class="x" id="closeCart" aria-label="Fermer">×</button></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="sum-row total"><span>Total</span><span id="cartTotal">0 €</span></div>
+      <button class="btn btn-block" id="checkoutBtn">Passer commande</button>
+    </div>
+  </aside>
+
+  <!-- ============ MODAL ============ -->
+  <div class="modal" id="modal">
+    <div class="modal-card">
+      <button class="x" id="closeModal" aria-label="Fermer">×</button>
+      <h3 id="modalTitle">Finaliser</h3>
+      <p class="note" id="modalSub"></p>
+      <form id="leadForm">
+        <div class="f-row"><input required placeholder="Prénom" /><input required placeholder="Nom" /></div>
+        <input required type="email" placeholder="E-mail" />
+        <input required type="tel" placeholder="Téléphone" />
+        <select><option>Livraison à domicile</option><option>Retrait en showroom</option></select>
+        <button class="btn btn-block" type="submit">Confirmer</button>
+      </form>
+      <div class="modal-ok" id="modalOk">
+        <div class="ok-icon">✓</div>
+        <h3>Merci !</h3>
+        <p>Un conseiller BMW M vous contacte sous 24 h.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js?v=3"></script>
+</body>
+</html>
