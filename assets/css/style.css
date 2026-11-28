@@ -539,3 +539,17 @@ html.leaving body { opacity: 0; transform: translateY(-10px); transition: opacit
 
 /* Page 404 */
 .big-404 { font-family: var(--font-title); font-weight: 800; font-size: clamp(6rem, 22vw, 13rem); line-height: .9; letter-spacing: -.05em; margin: 0 0 10px; }
+
+/* Pages légales */
+.legal { max-width: 860px; display: grid; gap: 18px; }
+.legal .card { padding: 28px 32px; }
+.legal h2 { font-size: 1.25rem; margin-bottom: 12px; }
+.legal p { color: var(--muted); }
+.legal p:last-child { margin-bottom: 0; }
+.legal a { color: var(--cyan); }
+.legal strong { color: var(--text); }
+.legal-list { list-style: none; padding: 0; margin: 0 0 1em; color: var(--muted); }
+.legal-list li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.legal-list li:last-child { border-bottom: 0; }
+.legal-date { font-size: .9rem; margin-top: 8px; }
+.form-foot a, .footer-bottom a { color: var(--cyan); }
