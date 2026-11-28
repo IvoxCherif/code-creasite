@@ -5,6 +5,14 @@ www.xn--codecra-gya.com {
 
 xn--codecra-gya.com {
 	root * /srv
+
+	# Adresses sans .html : /realisations sert realisations.html,
+	# et les anciennes adresses en .html sont redirigées (301) vers la version propre.
+	@index path_regexp idx ^(.*/)index\.html$
+	redir @index {re.idx.1} permanent
+	@html path_regexp html ^(.+)\.html$
+	redir @html {re.html.1} permanent
+	try_files {path} {path}.html {path}/index.html
 	encode zstd gzip
 	file_server
 
